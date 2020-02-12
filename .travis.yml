@@ -7,11 +7,12 @@ python:
 env:
   - DJANGO_VERSION=2.3
   - DJANGO_VERSION=3.1
+  - POSTGRES_USER=postgres
+  - POSTGRES_PASSWORD=""
 services:
   - postgresql
 install: pip install psycopg2-binary PyYAML "Django<$DJANGO_VERSION"
 before_script:
-  - psql -U postgres -c 'create role django_postgres_utils password \'django_postgres_utils\' login createdb;'
-  - psql -U postgres -c 'create database django_postgres_utils owner django_postgres_utils;'
+  - psql -U postgres -c 'create database django_postgres_utils;'
   - cd src/
 script: ./manage.py test
