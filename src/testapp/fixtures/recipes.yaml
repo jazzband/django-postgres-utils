@@ -1,0 +1,142 @@
+- model: testapp.topping
+  pk: 1
+  fields:
+    name: Tomato Sauce
+    veggy: true
+    vegan: true
+- model: testapp.topping
+  pk: 2
+  fields:
+    name: Cheese
+    veggy: true
+    vegan: false
+- model: testapp.topping
+  pk: 3
+  fields:
+    name: Chicken
+    vegan: false
+    veggy: false
+- model: testapp.topping
+  pk: 4
+  fields:
+    name: Broccoli
+    veggy: true
+    vegan: true
+- model: testapp.topping
+  pk: 5
+  fields:
+    name: Green Onion
+    veggy: true
+    vegan: true
+- model: testapp.topping
+  pk: 6
+  fields:
+    name: Sesame
+    veggy: true
+    vegan: true
+- model: testapp.topping
+  pk: 7
+  fields:
+    name: Teriyaki Sauce
+    veggy: true
+    vegan: true
+- model: testapp.topping
+  pk: 8
+  fields:
+    name: Tuna
+    veggy: false
+    vegan: false
+- model: testapp.topping
+  pk: 9
+  fields:
+    name: Onion
+    veggy: true
+    vegan: true
+- model: testapp.topping
+  pk: 10
+  fields:
+    name: Salami
+    veggy: false
+    vegan: false
+- model: testapp.topping
+  pk: 11
+  fields:
+    name: Mushroom
+    veggy: true
+    vegan: true
+- model: testapp.topping
+  pk: 12
+  fields:
+    name: Pesto
+    veggy: true
+    vegan: true
+- model: testapp.topping
+  pk: 13
+  fields:
+    name: BBQ Sauce
+    veggy: true
+    vegan: true
+- model: testapp.topping
+  pk: 14
+  fields:
+    name: Pulled Beef
+    veggy: false
+    vegan: false
+- model: testapp.topping
+  pk: 15
+  fields:
+    name: Red Onion
+    veggy: true
+    vegan: true
+- model: testapp.topping
+  pk: 16
+  fields:
+    name: Bell Pepper
+    veggy: true
+    vegan: true
+- model: testapp.pizza
+  pk: 1
+  fields:
+    name: Margherita
+    toppings:
+      - 2
+      - 1
+- model: testapp.pizza
+  pk: 2
+  fields:
+    name: Salami
+    toppings:
+      - 1
+      - 2
+      - 10
+- model: testapp.pizza
+  pk: 3
+  fields:
+    name: Funghi
+    toppings:
+      - 1
+      - 2
+      - 11
+      - 12
+- model: testapp.pizza
+  pk: 4
+  fields:
+    name: Teriyaki Chicken
+    toppings:
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+- model: testapp.pizza
+  pk: 5
+  fields:
+    name: Pulled Beef
+    toppings:
+      - 2
+      - 13
+      - 5
+      - 11
+      - 14
+      - 15
+      - 16
