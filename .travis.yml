@@ -10,5 +10,8 @@ env:
 services:
   - postgresql
 install: pip install psycopg2-binary PyYAML "Django<$DJANGO_VERSION"
-before_script: cd src/
+before_script:
+  - psql -U postgres -c 'create role django_postgres_utils password \'django_postgres_utils\' login createdb;'
+  - psql -U postgres -c 'create database django_postgres_utils owner django_postgres_utils;'
+  - cd src/
 script: ./manage.py test
