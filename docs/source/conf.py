@@ -22,7 +22,7 @@ copyright = '2020, Andreas Hasenkopf'
 author = 'Andreas Hasenkopf'
 
 # The full version, including alpha/beta/rc tags
-release = '0.1.1'
+release = '0.1.3'
 
 
 # -- General configuration ---------------------------------------------------
