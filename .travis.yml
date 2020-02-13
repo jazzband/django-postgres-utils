@@ -12,7 +12,10 @@ services:
 install: pip install psycopg2-binary PyYAML "Django<$DJANGO_VERSION"
 before_script:
   - psql -U postgres -c 'create database django_postgres_utils;'
-script: pushd src/; POSTGRES_USER="postgres" POSTGRES_PASSWORD="" ./manage.py test; popd
+  - cd src/
+script: POSTGRES_USER="postgres" POSTGRES_PASSWORD="" ./manage.py test
 deploy:
   provider: script
   script: pwd; ls -hl
+  on:
+    all_branches: true
