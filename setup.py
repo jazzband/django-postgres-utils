@@ -20,7 +20,7 @@ with open("README.md") as fh:
 
 setup(
     name='django-postgres-tweaks',
-    version='0.1.0',
+    version='0.1.1',
     description='Special PostgreSQL lookups and functions for Django apps',
     long_description=long_description,
     long_description_content_type="text/markdown",
