@@ -9,7 +9,7 @@ consider quite useful.
 Just use:
 
 ```bash
-pip install django-postgres-utils
+pip install django-postgres-tweaks
 ```
 
 As the title says it already, these tools are designed to be used in Django projects/apps. So make 
