@@ -1,9 +1,31 @@
+"""
+Database Functions
+==================
+
+Django provides a way for users to use functions provided by the underlying database as annotations,
+aggregations, or filters. Functions are also expressions, so they can be used and combined with
+other expressions like aggregate functions.
+
+However the list of `PostgreSQL specific functions in Django <functions>`_ is very limited.
+
+.. _functions: https://docs.djangoproject.com/en/3.0/ref/contrib/postgres/functions/
+"""
 from django.db.models import Subquery, Func, Value
 
 
 class ArraySubquery(Subquery):
     """
     Convert sub-query results to array
+
+    While Django's original :py:class:`django.db.models.Subquery` is allowed to return only one
+    match, this subquery is converted into an array and can return all matches, e.g.:
+
+    .. code-block:: python
+
+        sub_q = Topping.objects.filter(pizza=OuterRef("id"), vegan=True).values("name")
+        qs = Pizza.objects.annotate(vegan_toppings=ArraySubquery(sub_q))
+
+    :param queryset: The queryset to be executed as subquery.
     """
     template = 'ARRAY(%(subquery)s)'
 
@@ -14,6 +36,16 @@ class RegexpReplace(Func):
 
     .. note:: This might become available in Django in the future:
               https://code.djangoproject.com/ticket/28805
+
+    .. code-block:: python
+
+        Topping.objects \\
+            .filter(name__contains="Onion") \\
+            .annotate(onion_color=RegexpReplace("name", " *Onion$", ""))
+
+    :param expression: The expression/field to work on
+    :param pattern: The regular expression pattern to match
+    :param replacement: The replacement string for matches
     """
     function = 'REGEXP_REPLACE'
 
@@ -33,6 +65,17 @@ class RegexpReplace(Func):
 class Substring(Func):
     """
     Use regular expression to extract a substring from field
+
+    .. code-block:: python
+
+        Topping.objects \\
+            .filter(name__contains="Sauce") \\
+            .annotate(souce_type=Substring("name", "[A-Za-z]+(?= Sauce)")) \\
+            .values("name", "souce_type") \\
+            .order_by("name")
+
+    :param expression: The expression/field to work on
+    :param pattern: The regular expression pattern to match
     """
     arg_joiner = ' FROM '
     function = 'SUBSTRING'
