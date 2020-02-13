@@ -19,15 +19,17 @@ with open("README.md") as fh:
 
 
 setup(
-    name='django-postgres-utils',
+    name='django-postgres-tweaks',
     version='0.1.0',
     description='Special PostgreSQL lookups and functions for Django apps',
     long_description=long_description,
     long_description_content_type="text/markdown",
     author='Andreas Hasenkopf',
-    author_email='ahasenkopf@suse.com',
+    author_email='andreas@hasenkopf.xyz',
     url='https://github.com/Canned-Django/django-postgres-utils',
-    download_url='https://github.com/Canned-Django/django-postgres-utils/archive/master.zip',
+    project_urls={
+        'Documentation': 'https://canned-djangodjango-postgres-utils.readthedocs.io/'
+    },
     packages=["postgres_utils"],
     package_dir={'': 'src'},
     license='MIT',
