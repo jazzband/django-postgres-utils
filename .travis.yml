@@ -14,3 +14,12 @@ before_script:
   - psql -U postgres -c 'create database django_postgres_utils;'
   - cd src/
 script: POSTGRES_USER="postgres" POSTGRES_PASSWORD="" ./manage.py test
+deploy:
+  provider: pypi
+  user: "__token__"
+  password:
+    secure: "qDwt7lj50AIQb3N9qW0V76B1NmyCXYQc/fsCPaAnS7Q3lkD/7WPzHcCu13AMWNDJ8o/kG2c32QyhWifC8Ob9uYdCuvNUs2ogtClYB0l+SwzqYi0Ulchc3K60EYi4DfodpTyYcYrU4HzEHaOZwSfsQo2SYMbQxSL5KCWfC/HIGpATJE/2myb0ajge49pcMD9rBEfO7+auSg8MlMkmDBbINIFGZZXVgi1hZ1xGCvaZXYbehoUUl2mHZ7+o0+vLZ+WQ4OGf8lSXnGKgVHE+2Q/WDn5ULLelWzo7q5yg9/l14GsRYxsmj2cBgxo1I9QXxNdA16x4vQ5Bv8ChvCVxVlnKtsAla+e6VD7vEECm9Rb20XNh/k+Gz5lGJ4kNubmDdPksK6Lw36Djhq6UfKOY+RQefN+XbilI8fyPS9BbGKkG0zC39xdtEw4e8dsBjb9XxwxjWv3KqwNKsWOpEwEJ8tOz/5XnBhPZ5I0BJQXzFh9OT5vmGayzRkWZau029Ggm1/QBkKQC72tWFqbv5REmOEVkXYGvMLu9NPJOSjSr0eSJ5Rz0HauN0zjucByNtJAUurDKYyuPqaeJKoWzJZXsg/KN41W9zOM3KHYLVVMJ3q7HZ1ugVYv0fMnbRvHLowaWJ4AC8wimeGaNtHGzIOpoYUTay/UTSTZaDFEapobhJAdXKWE="
+  on:
+    tags: true
+    branch: master
+  skip_existing: true
