@@ -34,8 +34,8 @@ Assume you have a model called ``Pizza`` with a ``name`` field.
 Functions
 ^^^^^^^^^
 
-Like the DB functions provided by Django, e.g. in ``django.db.models.functions``, you need to need
-to import them prior to usage. An example query looks like this:
+Like the DB functions provided by Django, e.g. in ``django.db.models.functions``, you need to
+import them prior to usage. An example query looks like this:
 
 .. code-block:: python
 
