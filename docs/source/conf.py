@@ -18,11 +18,11 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), "../../src"))
 # -- Project information -----------------------------------------------------
 
 project = 'PostgreSQL lookups and functions for Django apps'
-copyright = '2020, Andreas Hasenkopf'
+copyright = '2023, Jazzband'
 author = 'Andreas Hasenkopf'
 
 # The full version, including alpha/beta/rc tags
-release = '0.1.3'
+release = '0.1.4'
 
 
 # -- General configuration ---------------------------------------------------
